@@ -32,9 +32,11 @@ end
 
 def select_name_and_series_subgenres_of_authors
   "SELECT Authors.name, Subgenres.name
-   FROM Authors, Series
-   LEFT JOIN Subgenres
-   ON Subgenres.id = Series.subgenre_id
+   FROM Authors
+   LEFT JOIN Series
+   ON Series.author_id = Authors.id
+   JOIN Subgenres
+   WHERE Subgenres.id = Series.subgenre_id
    GROUP BY Authors.name"
 end
 
