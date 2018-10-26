@@ -32,14 +32,23 @@ def select_name_and_series_subgenres_of_authors
    GROUP BY Authors.name"
 end
 
+# def select_series_title_with_most_human_characters
+#   "SELECT Series.title
+#    FROM Series
+#    JOIN Characters
+#    ON Series.id = Characters.series_id
+#    WHERE Characters.species = 'human'
+#    GROUP BY species
+#    ORDER BY COUNT(species)
+#    "
+# end
+
 def select_series_title_with_most_human_characters
   "SELECT Series.title
    FROM Series
    JOIN Characters
    ON Series.id = Characters.series_id
    WHERE Characters.species = 'human'
-   GROUP BY species
-   ORDER BY COUNT(species)
    "
 end
 
