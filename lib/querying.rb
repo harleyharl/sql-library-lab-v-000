@@ -23,7 +23,7 @@ end
 def select_value_and_count_of_most_prolific_species
   "SELECT Characters.species, COUNT(Characters.species)
    FROM Characters
-   WHERE Characters.species = 'human'
+   GROUP BY species
    ORDER BY COUNT(species)
    LIMIT 1;"
 end
