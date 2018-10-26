@@ -51,7 +51,7 @@ def select_series_title_with_most_human_characters
    WHERE Characters.species = 'human'
    GROUP BY Series.title
    ORDER BY COUNT(species)
-   LIMIT 1;
+   ASC LIMIT 1;
    "
 end
 
