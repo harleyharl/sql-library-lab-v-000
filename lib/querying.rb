@@ -7,18 +7,12 @@ def select_books_titles_and_years_in_first_series_order_by_year
    ORDER BY Books.year"
 end
 
-#above method is sketchy because 3 books is hard-coded
-
-
 def select_name_and_motto_of_char_with_longest_motto
   "SELECT Characters.name, Characters.motto
    FROM Characters
    ORDER BY LENGTH(Characters.motto)
    DESC LIMIT 1;"
 end
-
-#another sketchy hard-coded method above...
-
 
 def select_value_and_count_of_most_prolific_species
   "SELECT Characters.species, COUNT(Characters.species)
@@ -27,8 +21,6 @@ def select_value_and_count_of_most_prolific_species
    ORDER BY COUNT(species)
    DESC LIMIT 1;"
 end
-
-# above is also hard-coded
 
 def select_name_and_series_subgenres_of_authors
   "SELECT Authors.name, Subgenres.name
@@ -41,7 +33,13 @@ def select_name_and_series_subgenres_of_authors
 end
 
 def select_series_title_with_most_human_characters
-  "Write your SQL query here"
+  "SELECT Series.title
+   FROM Series
+   JOIN Characters
+   ON Series.id = Characters.series_id
+   ORDER BY COUNT(species)
+   WHERE Characters.species = 'human'
+   "
 end
 
 def select_character_names_and_number_of_books_they_are_in
